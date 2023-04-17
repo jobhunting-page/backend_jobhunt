@@ -1,7 +1,6 @@
 package com.example.jobhuntwithjpa.Service;
 
 
-import com.example.jobhuntwithjpa.Entity.UserBookMark;
 import com.example.jobhuntwithjpa.dto.UserAndBookmarkResponseDto;
 import com.example.jobhuntwithjpa.jwt.TokenProvider;
 import com.example.jobhuntwithjpa.repository.UserBookMarkRepository;
@@ -10,8 +9,8 @@ import com.example.jobhuntwithjpa.Entity.Authority;
 import com.example.jobhuntwithjpa.Entity.User;
 import com.example.jobhuntwithjpa.dto.UserDto;
 import com.example.jobhuntwithjpa.util.SecurityUtil;
+
 import lombok.RequiredArgsConstructor;
-import org.aspectj.asm.IModelFilter;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -19,6 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;

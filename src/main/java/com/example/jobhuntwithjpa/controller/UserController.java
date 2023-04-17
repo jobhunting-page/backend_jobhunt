@@ -37,6 +37,9 @@ public class UserController {
     @ApiOperation(value="회원가입",notes="회원가입 api {username},{password},{nickname}")
     @PostMapping("/signup")
     public ResponseEntity<User> signup(@Valid @RequestBody UserDto userDto) {
+        System.out.println(userDto.getUsername());
+        System.out.println(userDto.getPassword());
+        System.out.println(userDto.getNickname());
         return ResponseEntity.ok(userService.signup(userDto));
     }
     @ApiOperation(value="권한확인(user,admin)")
