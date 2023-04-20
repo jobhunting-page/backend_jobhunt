@@ -5,7 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@NoArgsConstructor(access= AccessLevel.PROTECTED)
+@NoArgsConstructor(access= AccessLevel.PUBLIC)
 @AllArgsConstructor //모든 매개변수가 있는 생성자
 @Builder
 @Setter // 실무에선 setter 를 열어둬서는 안된다.
