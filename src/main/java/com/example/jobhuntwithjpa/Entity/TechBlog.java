@@ -5,12 +5,12 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@NoArgsConstructor(access= AccessLevel.PROTECTED)
+@NoArgsConstructor(access= AccessLevel.PUBLIC)
 @AllArgsConstructor //모든 매개변수가 있는 생성자
 @Builder
 @Setter // 실무에선 setter 를 열어둬서는 안된다.
 @Getter
-@Table(name = "users")
+@Table(name = "tech_blog")
 @Entity
 public class TechBlog {
 
@@ -27,4 +27,8 @@ public class TechBlog {
 
     @Column(name = "date", length = 255)
     private String date;
+
+    @Column(name = "link", length = 255)
+    private String link;
+
 }
