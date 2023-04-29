@@ -24,20 +24,14 @@ def processing(data):
     try:
 
         
-        if data%2==0:
-            html = driver.page_source
-            soup = BeautifulSoup(html, 'html.parser')
-            companyheadline = soup.select('#techblog-body > div > div:nth-child(2n) > div > div > div.mantine-1sp40g > div.mantine-Text-root.mantine-16559e4')
-            companyimg = soup.select('#techblog-body > div > div:nth-child(2n) > div > img.mantine-14xayu2')
-            companyinfo= soup.select('#techblog-body > div > div:nth-child(2n) > div > div > div.mantine-Text-root.mantine-tx69da')
-            companydate = soup.select('#techblog-body > div > div:nth-child(2n) > div > div > div.mantine-1f3n6qv > div.mantine-Text-root.mantine-eg0xs6')
-        else:
-            html = driver.page_source
-            soup = BeautifulSoup(html, 'html.parser')
-            companyheadline = soup.select('#techblog-body > div > div:nth-child(2n+1) > div > div > div.mantine-1sp40g > div.mantine-Text-root.mantine-16559e4')
-            companyimg = soup.select('#techblog-body > div > div:nth-child(2n+1) > div > img.mantine-14xayu2')
-            companyinfo= soup.select('#techblog-body > div > div:nth-child(2n+1) > div > div > div.mantine-Text-root.mantine-tx69da')
-            companydate = soup.select('#techblog-body > div > div:nth-child(2n+1) > div > div > div.mantine-1f3n6qv > div.mantine-Text-root.mantine-eg0xs6')
+
+        html = driver.page_source
+        soup = BeautifulSoup(html, 'html.parser')
+        companyheadline = soup.select('#techblog-body > div > div:nth-child({}) > div > div > div.mantine-1sp40g > div.mantine-Text-root.mantine-16559e4'.format(data))
+        companyimg = soup.select('#techblog-body > div > div:nth-child({}) > div > img.mantine-14xayu2'.format(data))
+        companyinfo= soup.select('#techblog-body > div > div:nth-child({}) > div > div > div.mantine-Text-root.mantine-tx69da'.format(data))
+        companydate = soup.select('#techblog-body > div > div:nth-child({}) > div > div > div.mantine-1f3n6qv > div.mantine-Text-root.mantine-eg0xs6'.format(data))
+
         # print(companyheadline)
         # print(companyimg)
         # print(companydate)
