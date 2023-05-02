@@ -1,4 +1,4 @@
-name: career_codenary # 워크플로우 이름 지정
+name: career_codenary_real # 워크플로우 이름 지정
 
 on:
   schedule:
