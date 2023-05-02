@@ -1,6 +1,7 @@
 HELP.md
 node_modules
 .gradle
+application.yml
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
@@ -38,4 +39,4 @@ out/
 .vscode/
 
 *.yml
-src/main/resources/application.yml
+
