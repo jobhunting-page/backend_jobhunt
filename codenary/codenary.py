@@ -92,7 +92,7 @@ for data in range(1,11):
 driver.quit()
 
 print(parsing_data)
-with open(os.path.join(BASE_DIR, 'news.json'), 'w+',encoding='utf-8') as json_file:
+with open(os.path.join(BASE_DIR, 'news2.json'), 'w+',encoding='utf-8') as json_file:
     json.dump(parsing_data, json_file, ensure_ascii = False, indent='\t')
 
 print("완료!")
