@@ -1,9 +1,9 @@
-name: jobhunter # 워크플로우 이름 지정
+name: career_codenary # 워크플로우 이름 지정
 
 on:
   schedule:
-    - cron:  '* * 2 * *' # 주기적으로 실행하기 위한 스케줄링 - cron 설정
-  workflow_dispatch:
+    - cron:  '* 7 * * *' # 주기적으로 실행하기 위한 스케줄링 - cron 설정
+  workflow_dispatch: 
     inputs:
       name:
         description: "Person to greet"
@@ -58,8 +58,8 @@ jobs:
         unzip ./chromedriver_linux64.zip   
     - name: Run Scraper with python
       run: |
-        cd companyInfo
-        python company.py
+        cd codenary
+        python codenary.py
     - name: Set date in environment variable
       run: echo "DATE=$(date +'%Y년 %m월 %d일 %H시 %M분')" >> $GITHUB_ENV
     - name: Add & Commit # Add Commit
@@ -70,7 +70,7 @@ jobs:
         add: '*.json'
         push: false
     - name: Push
-      uses: ad-m/github-push-action@main
+      uses: ad-m/github-push-action@master
       with:
         branch: 'main'
         github_token: ${{ secrets.TOKEN }}
