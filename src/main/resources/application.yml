@@ -1,4 +1,5 @@
 spring:
+
   sql:
     init:
       mode: always
@@ -11,7 +12,11 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/jobhunt
     username: root
+<<<<<<< HEAD
     password: 1234
+=======
+    password: 1248
+>>>>>>> origin/develop
   jpa:
     open-in-view: true
     show-sql: true
@@ -29,4 +34,5 @@ jwt:
   token-validity-in-seconds: 10000 #10?
   refresh-token-validity-in-seconds: 86400 # ??
 
-
+openai:
+  api-key: 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
