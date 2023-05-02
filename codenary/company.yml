@@ -36,4 +36,4 @@ jobs:
       
     - name: Run! # company.py 파일을 실행하시오! 
       run: | 
-        python ./company.py
+        python ./codenary.py
