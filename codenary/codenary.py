@@ -8,11 +8,11 @@ import json
 import os
 
 chrome_options = webdriver.ChromeOptions()
-# chrome_options.add_argument('--headless')               # headless
-# chrome_options.add_argument('--no-sandbox')
-# chrome_options.add_argument('--disable-dev-shm-usage')
-# chrome_options.add_argument('--disable-gpu')
-# chrome_options.add_argument('--window-size=1920x1080')
+chrome_options.add_argument('--headless')               # headless
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage')
+chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--window-size=1920x1080')
 
 driver = webdriver.Chrome('chromedriver', chrome_options=chrome_options)
 driver.implicitly_wait(3)
