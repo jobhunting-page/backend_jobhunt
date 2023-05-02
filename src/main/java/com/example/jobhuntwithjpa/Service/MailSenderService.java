@@ -41,8 +41,7 @@ public class MailSenderService {
         helper.setSubject(subject);
 
         String emailTemplate = Files.readString(Paths.get("src/main/resources/static/acceptEmail.html"), StandardCharsets.UTF_8);
-        emailTemplate = emailTemplate.replace("{{name}}", "name");
-        emailTemplate = emailTemplate.replace("{{message}}", "message");
+        emailTemplate = emailTemplate.replace("{{CertificationNumber}}", "123456");
 
         helper.setText(emailTemplate, true);
         mailSender.send(mimeMessage);
