@@ -13,6 +13,7 @@ import javax.mail.internet.MimeMessage;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Random;
 
 @Service
 public class MailSenderService {
@@ -27,12 +28,14 @@ public class MailSenderService {
         this.mailSender = mailSender;
     }
 
-    public void sendEmail(String to, String subject, String body) throws Exception{
+    public String sendEmail(String to, String subject, String body) throws Exception{
         /*SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(to);
         message.setSubject(subject);
         message.setText(body);
         mailSender.send(message);*/
+
+        String verificationNum = getVerificationNumber().toString();
 
         MimeMessage mimeMessage = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "UTF-8");
@@ -41,9 +44,20 @@ public class MailSenderService {
         helper.setSubject(subject);
 
         String emailTemplate = Files.readString(Paths.get("src/main/resources/static/acceptEmail.html"), StandardCharsets.UTF_8);
-        emailTemplate = emailTemplate.replace("{{CertificationNumber}}", "123456");
+        emailTemplate = emailTemplate.replace("{{CertificationNumber}}", verificationNum);
 
         helper.setText(emailTemplate, true);
         mailSender.send(mimeMessage);
+
+        return verificationNum;
+    }
+
+    public Integer getVerificationNumber() {
+        // 난수의 범위 111111 ~ 999999 (6자리 난수)
+        Random r = new Random();
+        Integer checkNum = r.nextInt(888888) + 111111;
+        //System.out.println("인증번호 : " + checkNum);
+
+        return checkNum;
     }
 }
