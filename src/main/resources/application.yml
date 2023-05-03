@@ -42,5 +42,5 @@ jwt:
   refresh-token-validity-in-seconds: 86400 # ??
 
 openai:
-  api-key: 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
+  api-key: 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
 
