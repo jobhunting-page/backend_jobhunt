@@ -16,8 +16,8 @@ public class MailConfig {
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
 
-        mailSender.setUsername("no.reply.knu.likelion@gmail.com");
-        mailSender.setPassword("dyeqoipiwbvwzgpu");
+        mailSender.setUsername("kbsserver@likelion.org");
+        mailSender.setPassword("swxwmrzjxtzfcuss");
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");
