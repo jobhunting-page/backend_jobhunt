@@ -44,21 +44,18 @@ public class UserController {
     }
     @ApiOperation(value="권한확인(user,admin)")
     @GetMapping("/user")
-    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public ResponseEntity<User> getMyUserInfo() {
         return ResponseEntity.ok(userService.getMyUserWithAuthorities().get());
     }
 
     @ApiOperation(value="권한확인(admin)")
     @GetMapping("/user/{username}")
-    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<User> getUserInfo(@PathVariable String username) {
         return ResponseEntity.ok(userService.getUserWithAuthorities(username).get());
     }
 
 
     @GetMapping("/mypage")
-    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public List<UserAndBookmarkResponseDto> userMypage(){
         List<UserAndBookmarkResponseDto> mypage = userService.getMypage();
         return mypage;
@@ -66,7 +63,6 @@ public class UserController {
     }
 
     @GetMapping("/home")
-    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public List<UserAndBookmarkResponseDto> userhome(){
 
         List<UserAndBookmarkResponseDto> home = userService.getHome();
@@ -76,7 +72,6 @@ public class UserController {
     }
 
     @PostMapping("/bookmark/save")
-    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public ResponseEntity<ResponseMessage> bookMarkSave(@RequestBody UserBookMarkRequestDto userBookMarkRequestDto){
 
 
@@ -87,7 +82,6 @@ public class UserController {
                 .data(result)
                 .build());
     }
-    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     @DeleteMapping("/bookmark/delete/{user_bookmark_id}")
     public ResponseEntity<ResponseMessage> bookMarkDelete(@PathVariable long user_bookmark_id){
 
