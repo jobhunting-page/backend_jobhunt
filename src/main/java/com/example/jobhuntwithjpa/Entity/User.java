@@ -41,6 +41,9 @@ public class User {
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     private List<UserBookMark> bookmark=new ArrayList<>();
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    private List<Carrer_Board> board = new ArrayList<>();
 
 
     @ManyToMany
