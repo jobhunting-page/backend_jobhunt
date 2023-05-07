@@ -1,4 +1,10 @@
 {
+	"6": {
+		"preview": "내가 만든 워드클라우드 : 성능개선을 위한 여정 (Web Worker)",
+		"logo": "https://static.codenary.co.kr/company-logo/1311.png",
+		"info": "안녕하세요. 아이지에이웍스 MI 개발실에서 프론트엔드 개발을 맡고 있는 예리엘입니다.🔍워드클라우드?워드클라우드는 데이터를 시각적으로 보여줌으로써 키워드와 개념을 직관적으로 파악할 수 있게 해줄 수 있는 기법입니다. 가중치가 크거나 빈도가 높은 단어는 크게 표현해 한 눈에 들어 올수있게 하는 대표적인 기법이 있습니다.이러한 특징으로 컴포넌트를 만들 때 고려해야 하는 부분들이 많고 복잡할 수 있습니다. 하지만 직접 만들어보면 배울 점이 많은 과제라고 생각하여 직접 만들어 보았습니다.🧐 첫 워드클라우드 아쉬운 완성초기에 구현했던 워드클라우드는 BFS로 전체 캔버스를 탐색하고 DFS로 글자크기만큼 비었는지 확인 후 단어를 놓았습니다. 그러고 나서 완전 탐색으로 다시 전체 canvas 빈자리를 확안하고 단어를 놓는 로직으로 구현하였습니다.보라색 색깔 글자를 보게 되면 3가지의 알고리즘이 사용하였습니다. 이중배열, while, 재귀까지 복잡성을 높이는 여러 요소가 포함되어 있습니다.그 결과 코드의 복잡성과 연산 시간이 늘어남과 동시에 만족스럽지 않은 결과물을 얻었습니다. 🥲🥲글자도 겹치고 답답해 보이는 첫 워드클라우드...구체적인 문제점과 개선방안다시 한번 코드를 확인하면서 로직 외에도 다양한 관점에서 코드를 분석해 봤습니다.문제점1. 연산시 필요하지 않은 this 참조 array 2. 확장이 어려운 구조 3. 연산 위치의 정확성 4. 싱글스레드(메인스레드) 연산으로 스레드를 점유하는 상태 5. 재귀로 인해 연산의 사이즈가 커지면 `Maximum call stack size` 발생개선해보자~~!➊. 연산시 필요하지 않은 this 참조 array➡ this 참조는 최대한 지양하고 순수함수로 구성.private readonly visitedBuffer = Array . from ( Array ( this . originalCanvasWidth ) , ( ) => new Array ( this . originalCanvasHeight ) . fill ( 0 ) ) ;visitedBuffer는 캔버스 크기만큼의 이중 배열이 필요할 때마다 사용하기 위해 this 참조 변수입니다.대체로 방문을 확인하는 용도로 사용하였습니다.const visited = new Set ( ) ; ... while ( queue ) { visited . has ( ) ; ... visited . add ( ) ; }필요할 때마다 배열을 만드는 것이 아니라 순수 함수로 외부 상태에 의존하지 않는 방향으로 코드를 변경하였습니다.전에는 이중 배열로 방문을 확인했다면 해당 함수의 Set 자료구조를 사용하여 연산을 진행하는 함수 안에서만 사용되게 하였습니다.❷. 확장이 어려운 구조➡ 옵션 정리 (width, height, minFontSize, maxFontSize ...)< WordCloud words = { WordCloudValues } size = { 5 } width = { 50 } height = { 50 } />기본으로 width, height, 단어리스트, 크기 등 사용자는",
+		"date": "5/4/2023"
+	},
 	"7": {
 		"preview": "EKS Jam For App Modernization 워크샵 1등의 추억",
 		"logo": "https://static.codenary.co.kr/company-logo/4248.png",
